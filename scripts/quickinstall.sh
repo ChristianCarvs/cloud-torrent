@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Bash3 Boilerplate. Copyright (c) 2014, kvz.io
 
 set -o errexit
 set -o pipefail
@@ -51,7 +50,7 @@ wget -qO- https://api.github.com/repos/boypt/simple-torrent/releases/latest \
 | wget --no-verbose -i- -O- | gzip -d -c > ${CLDBIN}
 chmod 0755 ${CLDBIN}
 
-wget -O /etc/systemd/system/cloud-torrent.service https://raw.githubusercontent.com/boypt/simple-torrent/master/scripts/cloud-torrent.service
+wget -O /etc/systemd/system/cloud-torrent.service https://raw.githubusercontent.com/ChristianCarvs/Cloud-Torrent/master/scripts/cloud-torrent.service
 
 if [[ x${NEEDAUTH^^} == x"Y" ]]; then
     sed -i "s/user:ctorrent/${USERNAME}:${PASSWORD}/" /etc/systemd/system/cloud-torrent.service 
